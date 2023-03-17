@@ -1,0 +1,64 @@
+
+body{
+    display: flex;
+}
+
+.hide{
+    visibility: hidden;
+}
+
+.btn-display{
+    display:grid;
+    gap:10px;
+    margin:20px,0px,20px,0px;
+    padding:10px
+}
+
+.quizButtons{
+    display:flex;
+    margin: auto;
+    padding: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn {
+    background-color: #dcb0e9; ;  
+    max-width: 400px;
+}
+
+.btn:hover {
+    box-shadow:150px black;
+    border-color: black;
+    background-color: aliceblue;
+}
+
+.btn:hover {
+    box-shadow:150px black;
+    border-color: black;
+    background-color: aliceblue;
+}
+
+.start-btn, .next-btn {
+    font-size: 1.5rem;
+    font-weight:bold;
+    padding:10px 20px;
+}
+
+.hide{
+    visibility: none;
+}
+
+.correctAns:disabled{
+    background-color: rgb(110, 212, 110);
+    opacity: 100%;
+}
+.wrongAns:disabled {
+    background-color: rgb(226, 66, 66);
+    opacity: 100%
+    
+}
+
+.wrong{
+    color:rgb(226, 66, 66)
+}
