@@ -35,8 +35,12 @@ If the final question is not answered before the timer ends the display will sho
 ## Credits
 
 UofO bootcamp provided the guidelines and knowledge to help with the building of this application.
+
 https://dev.to/codebubb/how-to-shuffle-an-array-in-javascript-2ikj
+
 https://developer.mozilla.org/en-US/docs/Web/API/Location/reload
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from
 ## License
 
 MIT License
