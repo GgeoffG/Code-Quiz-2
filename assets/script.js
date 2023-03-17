@@ -1,19 +1,19 @@
 //Grab all neccesary HTML element for JavaScript interaction
-var timerEl=document.getElementById('time')
-var questionDis=document.getElementById('question')
-var answerEl= document.getElementById('Answers')
-var startButton= document.getElementById('start-btn')
-var scoreEl= document.getElementById('score')
-var scoreKeeperEl=document.getElementById('scoreKeeperEl')
-var initialsInput=document.getElementById('inInput')
-var sumbitButton=document.getElementById('submit')
+const timerEl=document.getElementById('time')
+const questionDis=document.getElementById('question')
+const answerEl= document.getElementById('Answers')
+const startButton= document.getElementById('start-btn')
+const scoreEl= document.getElementById('score')
+const scoreKeeperEl=document.getElementById('scoreKeeperEl')
+const initialsInput=document.getElementById('inInput')
+const sumbitButton=document.getElementById('submit')
 let IntervalId
 let timerCount
-var index= 0
+let index= 0
 let score= 0
 
 //Create an array of objects that contain properties to be called user interaction
-var questions= [
+let questions= [
     {
         question: 'What does HTML stand for?',
         answers: [
@@ -162,8 +162,8 @@ function displayQuestion(questions){
 
 function selectAnswer(event){
     //sets a var for the targeted button
-    var chosenAnswer = event.target
-    var correct = chosenAnswer.dataset.correct
+    let chosenAnswer = event.target
+    let correct = chosenAnswer.dataset.correct
     //disable all buttons after selection to prevent multiple clicks affecting score
     Array.from(answerEl.children).forEach(answer=> {
         answer.classList.remove('correct')
@@ -202,8 +202,8 @@ function selectAnswer(event){
         timerEl.innerText = "Congratulations!"
         startButton.innerHTML="Restart"
     }
-    var getInt= localStorage.getItem('saved initials',inInput)
-    var getScore= localStorage.getItem('saved score',Math.floor((score/questions.length) * 100) + '%')
+    const getInt= localStorage.getItem('saved initials',inInput)
+    const getScore= localStorage.getItem('saved score',Math.floor((score/questions.length) * 100) + '%')
     scoreDis.innerText= Math.floor((score/questions.length) * 100) + '%'
     if(getInt && getScore){
     lastScore.innerText= getInt + ':'+' ' + getScore
