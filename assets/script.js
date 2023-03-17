@@ -75,14 +75,15 @@ var questions= [
 
 //Fisher-Yates algorithm for randomization
 //Fisher Yates loops through the array from end to start picks a random item and then switches it with the current iteration
-const shuffleArray = array => {
+function shuffleQuestions (array) {
   for (let i = questions.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
-    const temp = array[i];
+    const l = array[i];
     array[i] = array[j];
-    array[j] = temp;
+    array[j] = l;
   }
 }
+shuffleQuestions(questions)
 console.log(questions)
 
 startButton.addEventListener('click',startQuiz)
@@ -142,20 +143,20 @@ function displayQuestion(questions){
     questionDis.innerText = questions.question
     questions.answers.forEach(answers => {
         //creates a button for each answer available
-    const button =document.createElement('button')
+    const answer =document.createElement('button')
     //set the buttons inner text to the text property within the answers array
-    button.innerText=answers.text
+    answer.innerText=answers.text
     //style the button to look like other buttons
-    button.classList.add('btn')
+    answer.classList.add('btn')
     //give the dataset attribute of correct for reference in answer select function
     //only assigning the correct answer
     if (answers.correct){
-    button.dataset.correct = answers.correct
+    answer.dataset.correct = answers.correct
     }
     //add the event listener to each button
-    button.addEventListener('click',selectAnswer)
+    answer.addEventListener('click',selectAnswer)
     //append the button to the answer element
-    answerEl.appendChild(button)
+    answerEl.appendChild(answer)
     })
 }  
 
@@ -164,10 +165,10 @@ function selectAnswer(event){
     var chosenAnswer = event.target
     var correct = chosenAnswer.dataset.correct
     //disable all buttons after selection to prevent multiple clicks affecting score
-    Array.from(answerEl.children).forEach(button => {
-        button.classList.remove('correct')
-        button.classList.remove('wrong')
-        button.disabled = true
+    Array.from(answerEl.children).forEach(answer=> {
+        answer.classList.remove('correct')
+        answer.classList.remove('wrong')
+        answer.disabled = true
 })
     // if the target has been assigned the 'correct' data attribute
     //correct answer function adds to user score and displays green for success
