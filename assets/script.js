@@ -75,7 +75,7 @@ let questions= [
 
 //Fisher-Yates algorithm for randomization
 //Fisher Yates loops through the array from end to start picks a random item and then switches it with the current iteration
-function shuffleQuestions (array) {
+ const shuffleQuestions = (array) => {
   for (let i = questions.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     const l = array[i];
@@ -86,10 +86,8 @@ function shuffleQuestions (array) {
 shuffleQuestions(questions)
 console.log(questions)
 
-startButton.addEventListener('click',startQuiz)
-
 //function to start the quiz
-function startQuiz(){
+const startQuiz = () => {
     //changes start button functionality for start button based on innerText
     if (startButton.innerText == 'Try Again'|| startButton.innerText == 'Restart'){
         location.reload() 
@@ -104,8 +102,9 @@ function startQuiz(){
      //Create first question
      createQuestions()
 }
+startButton.addEventListener('click',startQuiz)
 
-function timer() {
+const timer = () => {
     if (timerCount > 0)
         timerCount--
         timerEl.classList.remove('wrong')
@@ -126,18 +125,18 @@ function timer() {
     }
 } 
 
-function createQuestions(){
+const createQuestions = () => {
     clearDisplay()
 displayQuestion(questions[index])
 }
 //while loop to clear display but removing the first child while there is a first child
-function clearDisplay(){
+const clearDisplay = () => {
     while (answerEl.firstChild){
         answerEl.removeChild (answerEl.firstChild)
     }
     }
 
-function displayQuestion(questions){
+const displayQuestion = (questions) => {
     //changes question section to display a question from the questions array
     //questions refers to the array, question refers to the property assigned to each object
     questionDis.innerText = questions.question
@@ -160,7 +159,7 @@ function displayQuestion(questions){
     })
 }  
 
-function selectAnswer(event){
+const selectAnswer = (event) => {
     //sets a var for the targeted button
     let chosenAnswer = event.target
     let correct = chosenAnswer.dataset.correct
